@@ -1,4 +1,4 @@
-package com.jinwoo.dto;
+package com.jinwoo.chatting.dto;
 
 public class MemberVO {
 	int no;

@@ -1,15 +1,16 @@
-package com.jinwoo.service;
+package com.jinwoo.chatting.service;
 
 
 import java.util.List;
 
-import com.jinwoo.dto.MemberVO;
+import com.jinwoo.chatting.dto.MemberVO;
  
  
 public interface MemberService {
     
     public List<MemberVO> selectMember() throws Exception;
     public MemberVO doLogin(MemberVO inVO) throws Exception;
+    public int doJoin(MemberVO inVO) throws Exception;
 
 }
 

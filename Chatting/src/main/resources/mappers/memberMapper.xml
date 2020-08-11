@@ -19,6 +19,10 @@
 		    user_id= #{user_id,jdbcType=VARCHAR}    
 			AND password= #{password,jdbcType=VARCHAR}
 </select>
+<insert id="doJoin" parameterType="memberVO">
+	INSERT INTO chatting_user(user_id, password,name)
+	values(#{user_id,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR})
+</insert>
     
 </mapper>
 

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jinwoo.chatting.controller.MemberController;
-import com.jinwoo.dto.MemberVO;
-import com.jinwoo.service.MemberService;
+import com.jinwoo.chatting.dto.MemberVO;
+import com.jinwoo.chatting.service.MemberService;
 
 /**
  * Handles requests for the application home page.

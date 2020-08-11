@@ -50,7 +50,7 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	<!-- bean 등록 -->
-	<context:component-scan base-package="com.jinwoo.dao"></context:component-scan>
-	<context:component-scan base-package="com.jinwoo.service"></context:component-scan>
+	<context:component-scan base-package="com.jinwoo.chatting.dao"></context:component-scan>
+	<context:component-scan base-package="com.jinwoo.chatting.service"></context:component-scan>
 
 </beans>
