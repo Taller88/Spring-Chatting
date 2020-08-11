@@ -8,3 +8,5 @@ Spring Framework를 활용한 채팅 프로그램
  3. mybatis
  4. jUnit
  
+- Work Flow 
+  Sign UP -> Login -> 
