@@ -59,8 +59,8 @@ public class MemberController {
 		}
 		HttpSession session=req.getSession();
 		session.setAttribute("member", outVO);
-		List<MemberVO> memList=memService.selectMember();
-		model.addAttribute("memberList",memList);
+//		List<MemberVO> memList=memService.selectMember();
+		model.addAttribute("member",outVO);
 		return "chatting/index";
 	}
 	
