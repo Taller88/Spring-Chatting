@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.socket.WebSocketSession;
 
 import com.jinwoo.chatting.dto.MemberVO;
 import com.jinwoo.chatting.service.MemberService;
@@ -60,6 +61,7 @@ public class MemberController {
 		HttpSession session=req.getSession();
 		session.setAttribute("member", outVO);
 //		List<MemberVO> memList=memService.selectMember();
+		
 		model.addAttribute("member",outVO);
 		return "chatting/index";
 	}

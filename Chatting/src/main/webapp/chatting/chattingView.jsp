@@ -14,8 +14,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<!-- Zebra-Dialog CDN -->
-	<script src="resources/js/dialog/zebra_dialog.src.js"></script>
-	<link rel="stylesheet" href="resources/css/dialog/zebra_dialog.css" type="text/css"/>
+	<script src="../resources/js/dialog/zebra_dialog.src.js"></script>
+	<link rel="stylesheet" href="../resources/css/dialog/zebra_dialog.css" type="text/css"/>
 	<!-- SocketJS CDN -->
 	<script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 	
@@ -39,7 +39,7 @@
     	</div>
 	</div>
 </body>
-<script type="text/javascript">
+<script type="text/javascript" ">
 $(function(){
 	$("#chattinglistbtn").click(function(){
 		var infodialog = new $.Zebra_Dialog('<strong>Message:</strong><br><br><p>채팅방 참여자 리스트</p>',{
@@ -59,7 +59,7 @@ $(function(){
 </script>
 <script type="text/javascript">
 //websocket을 지정한 URL로 연결
-var sock= new SockJS("http://localhost:8080/chatting/controller/echo/");
+var sock= new SockJS("/echo");
 //websocket 서버에서 메시지를 보내면 자동으로 실행된다.
 sock.onmessage = onMessage;
 //websocket 과 연결을 끊고 싶을때 실행하는 메소드
