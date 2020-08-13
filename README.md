@@ -14,7 +14,9 @@ Spring Framework를 활용한 채팅 프로그램
   
 
 * Web Socket 정리 
+
   - WebSocket은 Spring4 스펙에 포함 (4.0부터 새롭게 등장)
+  
     cf) 기존 Http는 비연결통신 -> 때문에 Java Socket을 사용(connect->bind->...수) 하나하나 구현해야했음
     
    But) Spring 4에서는 API를 만들어서 Http의 비연결통신을 보완 
