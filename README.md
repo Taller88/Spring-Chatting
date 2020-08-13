@@ -9,4 +9,7 @@ Spring Framework를 활용한 채팅 프로그램
  4. jUnit
  
 - Work Flow 
-  Sign UP -> Login -> 
+
+  Sign UP -> Login -> index -> ChattingView
+  
+* Socket 개념 정리
