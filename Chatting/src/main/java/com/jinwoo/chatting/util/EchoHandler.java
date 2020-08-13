@@ -2,6 +2,7 @@ package com.jinwoo.chatting.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,12 +34,18 @@ public class EchoHandler extends TextWebSocketHandler{
     	//sessions.put(session.getId(), session);
         //List쓸때 방법
         sessionList.add(session);
+        Map<String,Object> map = session.getAttributes();
+        String userId = (String)map.get("member");
+        System.out.println("로그인 한 아이디 : " + userId);
+
+        
         //세션값을 불러온
         //0번째 중괄호에 session.getId()을 넣으라는뜻
-        logger.info("{} 연결됨", session.getId()); 
+        logger.info("{} 연결됨", userId); 
+        
         
         //Session값을 가지고 데이터베이스등의 작업을 하면 채팅 참여 사용자 정보 리스트를 구현할 수 있다.//
-        System.out.println("채팅방 입장자: " + session.getPrincipal().getName());
+        System.out.println("채팅방 입장자: " + userId);
     }
     
     /**
@@ -46,14 +53,19 @@ public class EchoHandler extends TextWebSocketHandler{
      */
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+    	
+    	 Map<String,Object> map = session.getAttributes();
+         String userId = (String)map.get("member");
+         System.out.println("로그인 한 아이디 : " + userId);
+
         //0번째에 session.getId() 1번째에 message.getPayload() 넣음
-        logger.info("{}로 부터 {} 받음", session.getId(), message.getPayload());
+        logger.info("{}로 부터 {} 받음", userId, message.getPayload());
         //logger.info("{}로부터 {}받음", new String[]{session.getId(),message.getPayload()});
         
         //연결된 모든 클라이언트에게 메시지 전송 : 리스트 방법
         //getPrincipal()를 이용해서 세션에 물려있는 유저의 정보를 불러온다.세션의 정보는 User를 이용한것과 동일하다.//
         for(WebSocketSession sess : sessionList){
-        	sess.sendMessage(new TextMessage(session.getPrincipal().getName()+ "|" + message.getPayload()));
+        	sess.sendMessage(new TextMessage(userId+ "|" + message.getPayload()));
         }
         
         // 맵 방법.
@@ -76,13 +88,15 @@ public class EchoHandler extends TextWebSocketHandler{
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         //List 삭제
         sessionList.remove(session);
-        
+        Map<String,Object> map = session.getAttributes();
+        String userId = (String)map.get("member");
+        System.out.println("로그인 한 아이디 : " + userId);
         //Map 삭제
         //sessions.remove(session.getId());
         
-        logger.info("{} 연결 끊김.", session.getId());
+        logger.info("{} 연결 끊김.", userId);
         
-        System.out.println("채팅방 퇴장자: " + session.getPrincipal().getName());
+        System.out.println("채팅방 퇴장자: " + userId);
     }
  
 }

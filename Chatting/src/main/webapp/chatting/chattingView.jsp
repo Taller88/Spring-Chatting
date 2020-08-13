@@ -22,7 +22,7 @@
 	<title>Chatting page</title>
 </head>
 <body>
-	<h1>Chatting Page (id: ${userId})</h1>
+	<h1>Chatting Page (id: ${member.getUser_id()})</h1>
 	<div>
 		<input type="button" id="chattinglistbtn" value="채팅 참여자 리스트">
 	</div>
@@ -35,7 +35,10 @@
     	<br>
     	<div class="well" id="chatdata">
     		<!-- User Session Info Hidden -->
-    		<input type="hidden" value='${userId}' id="sessionuserid">
+    		<input type="hidden" value='${member.getUser_id()}' id="sessionuserid">
+    		<input type="hidden" value='${member.getNo()}' id="sessionuserNo">
+    		<input type="hidden" value='${member.getName()}' id="sessionuserName">
+    		
     	</div>
 	</div>
 </body>
